@@ -9,6 +9,7 @@
         <input v-else
                v-bind:value="element.text"
                v-on:keyup.enter="valid(index, $event)"
+               ref="input"
                type="text" style="width: 100px">
         <button @click="remove(index)" style="margin-left: 10px">delete</button>
       </li>
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "List",
   data() {
@@ -48,8 +51,16 @@ export default {
     valid(index, event) {
         this.elements[index].text = event.target.value;
         this.elements[index].modifyOn = false
+    },
+
+  },
+  updated() {
+    let inputs = this.$refs.input;
+    if (inputs && inputs.length) {
+      let last_input = inputs[inputs.length -1];
+      last_input.focus();
     }
-  }
+  },
 }
 </script>
 
