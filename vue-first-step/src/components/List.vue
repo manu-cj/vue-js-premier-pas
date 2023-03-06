@@ -8,7 +8,7 @@
         </span>
         <input v-else
                v-bind:value="element.text"
-               v-on:keyup="valid(index, $event)"
+               v-on:keyup.enter="valid(index, $event)"
                type="text" style="width: 100px">
         <button @click="remove(index)" style="margin-left: 10px">delete</button>
       </li>
@@ -46,10 +46,8 @@ export default {
     },
 
     valid(index, event) {
-      if (event.key === "Enter") {
         this.elements[index].text = event.target.value;
         this.elements[index].modifyOn = false
-      }
     }
   }
 }
