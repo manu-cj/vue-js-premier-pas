@@ -16,7 +16,6 @@
         <div class="display">
           <div class="img"><img :src="poke.url" alt=""></div>
         </div>
-
       </div>
     </div>
   </div>

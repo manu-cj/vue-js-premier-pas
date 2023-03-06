@@ -1,18 +1,17 @@
 <template>
-  <Menu/>
-
+<!--  <Menu/>-->
+  <List/>
 </template>
 
 <script>
-import Menu from "@/components/Menu";
-import pokemon from "../database/pokemon"
+// import Menu from "@/components/Menu";
+import List from "@/components/List";
 
 export default {
   name: 'App',
   components: {
-    Menu,
-    pokemon
-
+    // Menu,
+    List
   }
 }
 </script>
