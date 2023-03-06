@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li @dblclick="modify(index)" v-for="(element, index) in elements">
+      <li v-for="(element, index) in elements">
         <span style="width: 100px" v-if="!element.modifyOn"
         @dblclick="modify(index)">
            {{element.text}}
@@ -11,12 +11,21 @@
                v-on:keyup.enter="valid(index, $event)"
                ref="input"
                type="text" style="width: 100px">
+        <button @click="modify(index)" style="margin-left: 10px">modifier</button>
         <button @click="remove(index)" style="margin-left: 10px">delete</button>
       </li>
     </ul>
+    <button v-if="addElement === false" @click="addElement = true" style="margin-left: 10px">add</button>
+    <button v-if="addElement=== true"
+            @click="addElement = false"
+            style="margin-left: 10px">annuler</button>
+    <input v-if="addElement === true"
+           v-on:keyup.enter="add($event)"
+           type="text" placeholder="Ajoutez un élément">
     <div v-if="elements.length === 0">
+      {{addElement = null}}
       <h1>Non, il n'y a plus rien ici</h1>
-      <input type="text" style="width: 100px">
+      <input v-on:keyup.enter="add($event)" type="text" placeholder="Ajoutez un élément">
     </div>
   </div>
 </template>
@@ -34,8 +43,8 @@ export default {
         {text : "Element 3", modifyOn : false},
         {text : "Element 4", modifyOn : false},
         {text : "Element 5", modifyOn : false},
-
-      ]
+      ],
+      addElement : false,
     }
   },
 
@@ -53,6 +62,11 @@ export default {
         this.elements[index].modifyOn = false
     },
 
+    add(event) {
+      this.elements.push({text: event.target.value, modifyOn: false});
+      this.addElement = false
+    }
+
   },
   updated() {
     let inputs = this.$refs.input;
@@ -67,6 +81,9 @@ export default {
 <style scoped>
   div {
     color: aliceblue;
+  }
+
+  li {
     font-size: 35px;
   }
 </style>
