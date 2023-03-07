@@ -1,17 +1,20 @@
 <template>
 <!--  <Menu/>-->
-  <List/>
+<!--  <List/>-->
+  <Event/>
 </template>
 
 <script>
 // import Menu from "@/components/Menu";
 import List from "@/components/List";
+import Event from "@/components/Event";
 
 export default {
   name: 'App',
   components: {
     // Menu,
-    List
+    // List,
+    Event
   }
 }
 </script>
