@@ -24,7 +24,7 @@
            type="text" placeholder="Ajoutez un élément">
     <div v-if="elements.length === 0">
       {{addElement = null}}
-      <h1>Non, il n'y a plus rien ici</h1>
+      <h1>Oh non, il n'y a plus rien ici !</h1>
       <input v-on:keyup.enter="add($event)" type="text" placeholder="Ajoutez un élément">
     </div>
   </div>
