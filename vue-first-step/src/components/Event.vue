@@ -1,5 +1,5 @@
 <template>
-  <h1>Event</h1>
+  <h1 v-bind:style="{color: style.color}">Event</h1>
 
 
 <div v-bind = "created()">Il est {{time}}</div>
@@ -11,6 +11,16 @@
     <br><br>
     <br><br>
     <b>Message du v-model</b> :
+    <p>{{message}}</p>
+  </div>
+
+  <div>
+    <b>Message (avec v-bind)</b> :
+    <br><br>
+    <input type="text" v-bind:value="message">
+    <br><br>
+    <br><br>
+    <b>Message du v-bind</b> :
     <p>{{message}}</p>
   </div>
 
@@ -32,9 +42,13 @@ export default {
         {text: "Element 5", modifyOn: false},
       ],
       show: false,
-      message : '',
-      time : "..."
-
+      message : 'message',
+      time : "...",
+      style : {
+        color : "red",
+        backgroundColor : "white",
+        fontsize : "30px"
+      }
     }
   },
 
