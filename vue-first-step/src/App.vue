@@ -1,6 +1,6 @@
 <template>
 <!--  <Menu/>-->
-<!--  <List/>-->
+<List/>
   <Event/>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: 'App',
   components: {
     // Menu,
-    // List,
+     List,
     Event
   }
 }

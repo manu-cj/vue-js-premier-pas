@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="(element, index) in elements">
-        <span style="width: 100px" v-if="!element.modifyOn"
+        <span v-bind:style="{color : element.color}" style="width: 100px" v-if="!element.modifyOn"
         @dblclick="modify(index)">
            {{element.text}}
         </span>
@@ -38,11 +38,11 @@ export default {
   data() {
     return {
       elements: [
-        {text : "Element 1", modifyOn : false},
-        {text : "Element 2", modifyOn : false},
-        {text : "Element 3", modifyOn : false},
-        {text : "Element 4", modifyOn : false},
-        {text : "Element 5", modifyOn : false},
+        {text : "Element 1", modifyOn : false, color : "red"},
+        {text : "Element 2", modifyOn : false, color : "yellow"},
+        {text : "Element 3", modifyOn : false, color : "blue"},
+        {text : "Element 4", modifyOn : false, color : "green"},
+        {text : "Element 5", modifyOn : false, color : "brown"},
       ],
       addElement : false,
     }
