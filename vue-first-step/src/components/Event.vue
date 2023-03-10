@@ -1,20 +1,29 @@
 <template>
   <h1>Event</h1>
-  <div id="menu" style=" position: absolute; border: solid 1px red; background-color: #ddd;" v-show="show">
-    <ul>
-      <li v-for="element in elements">{{ element.text }}</li>
-    </ul>
+
+
+<div v-bind = "created()">Il est {{time}}</div>
+
+  <div>
+    <b>Message (avec v-model)</b> :
+    <br><br>
+    <input type="text" v-model="message">
+    <br><br>
+    <br><br>
+    <b>Message du v-model</b> :
+    <p>{{message}}</p>
   </div>
-  <button @click="click($event)" style="font-size: 20px">Afficher la liste {{ x }} {{ y }}</button>
+
+
 </template>
 
 <script>
+
+
 export default {
   name: "Event",
   data() {
     return {
-      x: 0,
-      y: 0,
       elements: [
         {text: "Element 1", modifyOn: false},
         {text: "Element 2", modifyOn: false},
@@ -23,23 +32,28 @@ export default {
         {text: "Element 5", modifyOn: false},
       ],
       show: false,
+      message : '',
+      time : "..."
+
     }
   },
 
   methods: {
-    click(event) {
-      let menu = document.querySelector("#menu");
-      menu.style.left = event.pageX + 'px';
-      menu.style.top = event.pageY + 'px';
-      menu.style.backgroundColor = 'red';
-      this.show = true;
+    created() {
+      setInterval(()=> {
+        this.time = (new Date()).toTimeString().split(" ")[0];
+      }, 1000)
+
     }
 
-
   }
+
 }
+
 </script>
 
 <style scoped>
-
+div {
+  color: aliceblue;
+}
 </style>
