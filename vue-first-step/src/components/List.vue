@@ -63,7 +63,9 @@ export default {
     },
 
     add(event) {
-      this.elements.push({text: event.target.value, modifyOn: false});
+      let randomColor = (Math.floor(Math.random()*0xFFFFFF)).toString(16);
+
+      this.elements.push({text: event.target.value, modifyOn: false, color: '#'+ randomColor});
       this.addElement = false
     }
 
