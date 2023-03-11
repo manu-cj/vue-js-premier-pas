@@ -1,20 +1,23 @@
 <template>
-<!--  <Menu/>-->
-<List/>
-  <Event/>
+  <!--  <Menu/>-->
+<!--  <List/>-->
+<!--  <Event/>-->
+  <Computed/>
 </template>
 
 <script>
 // import Menu from "@/components/Menu";
 import List from "@/components/List";
 import Event from "@/components/Event";
+import Computed from "@/components/Computed";
 
 export default {
   name: 'App',
   components: {
     // Menu,
-     List,
-    Event
+    //  List,
+    // Event,
+    Computed
   }
 }
 </script>
