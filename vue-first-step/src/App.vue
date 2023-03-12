@@ -2,14 +2,16 @@
   <!--  <Menu/>-->
 <!--  <List/>-->
 <!--  <Event/>-->
-  <Computed/>
+<!--  <Computed/>-->
+  <Watch/>
 </template>
 
 <script>
 // import Menu from "@/components/Menu";
-import List from "@/components/List";
-import Event from "@/components/Event";
-import Computed from "@/components/Computed";
+// import List from "@/components/List";
+// import Event from "@/components/Event";
+// import Computed from "@/components/Computed";
+import Watch from "@/components/Watch";
 
 export default {
   name: 'App',
@@ -17,7 +19,8 @@ export default {
     // Menu,
     //  List,
     // Event,
-    Computed
+    // Computed,
+    Watch
   }
 }
 </script>
